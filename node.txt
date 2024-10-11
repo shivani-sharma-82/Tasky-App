@@ -1,0 +1,175 @@
+const add=require("./p4");
+console.log(add(5,5));
+// console.log(add);
+
+p4.js
+
+const add=(a,b)=>{
+    return a+b;
+};
+exports.module=add;
+
+
+// to create a file
+// mkdir null > p1.js
+//REPL
+// Read ,Eval,Print,Loops-used for debugging js code
+// simply type node in terminal
+
+// js expression-9*9
+// uses variables
+// use _ underscore to get last result
+// we can use editor mode
+
+
+
+
+// npm-node package manager
+
+const chalk = require('chalk');
+console.log(chalk.blue("hello world"));
+
+
+
+
+
+
+
+
+
+
+// Filesystem module
+// const fs=require("fs");
+
+// creating new folder
+// fs.mkdirSync("crud");
+
+// adding file to this folder
+// fs.writeFileSync("crud/p1.js","this is crud challenge");
+
+// reading content of file without reading buffer data
+// const file_data=fs.readFileSync("crud/p1.js","utf-8");
+// console.log(file_data);
+
+// read buffer data -binary data
+// buf_data=fs.readFileSync("crud/p1.js");
+// console.log(buf_data);
+
+// renaming the file
+// fs.renameSync("crud/p1.js","crud/p1.txt");
+
+// Deleting the file
+// fs.unlinkSync("crud/p1.txt");
+
+// fs.unlinkSync("crud/p1.js");
+
+// operating system module
+
+/*const os=require("os");
+
+console.log(os.arch());
+console.log(os.platform());
+console.log(os.hostname());
+console.log(os.freemem());                                    //prints free memory opf our system in bytes
+console.log(os.totalmem());
+console.log(`${os.freemem()/1024/1024/1024}`);                 //prints free memory i Giga Bytes
+console.log(`${os.totalmem()/1024/1024/1024}`);
+console.log(os.type());
+console.log(os.tmpdir());
+*/
+
+// path module in node js
+
+// const path =require("path");
+
+// // console.log(path.basename("C:\Users\91951\Desktop\nodejs\p3.js"));
+// // console.log(path.dirname("C:\Users\91951\Desktop\nodejs\p3.js"));
+// // console.log(path.extname("C:\Users\91951\Desktop\nodejs\p3.js"));
+// // console.log(path.parse("C:\Users/91951/Desktop/nodejs/p3.js"));
+// console.log(path.parse("C:\Users/91951/Desktop/nodejs/p3.js").name);
+// console.log(path.parse("C:\Users/91951/Desktop/nodejs/p3.js").root);
+// console.log(path.parse("C:\Users/91951/Desktop/nodejs/p3.js").ext);
+
+
+// asynchronous file system
+
+const fs=require("fs");
+
+// creating new directory asynchronously i.e. by providing callbacks
+// fs.mkdir("abc",(err)=>{
+//     console.log(err);
+// });
+
+// removing directory- we can also provide void callbacks
+// fs.rmdir("abc",()=>{
+
+// });
+
+// reading a file
+// fs.readFile("./p2.js","utf-8",(err,res)=>{
+// console.log(err);
+// res="file read successfully";
+// console.log(res);
+// });
+
+// creating a file
+
+// fs.writeFile("abc.txt","heloo abc",(err)=>{
+// console.log(err);
+// });
+
+//adding data to an existing file
+
+// fs.appendFile("abc.txt"," how are you?",(err)=>{
+//     console.log(err);
+// });
+
+// deleting a file
+// fs.unlink("abc.txt",(err)=>{
+//     console.log(err);
+// });
+
+
+
+
+
+
+
+import chalk from 'chalk';
+import validator from 'validator';
+// console.log(chalk.red.underline.inverse('success!'));
+const result=validator.isEmail("shivanisharma8217@gmail.com");
+console.log(result?chalk.green.inverse(result):chalk.red.inverse(result));
+
+
+
+
+
+import { json } from "express/lib/response";
+
+const bioData={
+    name:"Thapa",
+    age:20,
+};
+//console.log(bioData.name);
+
+/*
+const jsonData=JSON.stringify(bioData);       //object to json
+console.log(jsonData);          //{"name":"Thapa","age":20}
+console.log(jsonData.age);        //undefined
+const objData=JSON.parse(jsonData);    //json to object
+console.log(objData);      //{ name: 'Thapa', age: 20 }
+*/
+
+//1. convert to json
+
+const jsonData=JSON.stringify(bioData);
+
+
+//2. ADd data to another file
+
+const fs=require("fs");
+fs.writeFile("json1.json",jsonData,(err)=>
+{
+    console.log("done");
+});
